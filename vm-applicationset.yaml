@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: vm-deployments
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: vm1
+          - name: vm2
+          - name: vm3
+  template:
+    metadata:
+      name: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/francis0516/gitops-vm-demo.git'
+        targetRevision: main
+        path: 'overlays/{{name}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: vm-migration-test
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
