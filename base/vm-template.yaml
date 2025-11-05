@@ -1,0 +1,30 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: base-vm
+  namespace: vm-migration-test
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        kubevirt.io/domain: base-vm
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+            - name: rootdisk
+              disk:
+                bus: virtio
+        resources:
+          requests:
+            memory: 2Gi
+      volumes:
+        - name: rootdisk
+          containerDisk:
+            image: quay.io/containerdisks/centos-stream:9
+      networks:
+        - name: default
+          pod: {}
