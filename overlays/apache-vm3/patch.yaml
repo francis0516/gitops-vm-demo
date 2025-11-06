@@ -1,7 +1,7 @@
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
-  name: apache-vm3  # this renames it
+  name: apache-vm3
 spec:
   template:
     metadata:
