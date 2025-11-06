@@ -1,8 +1,0 @@
-apiVersion: builtin
-kind: NameTransformer
-metadata:
-  name: rename-apache-vm1
-prefix: ""
-suffix: ""
-nameMap:
-  base-vm: apache-vm1
