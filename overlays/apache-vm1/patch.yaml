@@ -1,0 +1,9 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: apache-vm1
+spec:
+  template:
+    metadata:
+      labels:
+        kubevirt.io/domain: apache-vm1
