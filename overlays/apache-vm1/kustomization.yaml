@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../../base
 
+namePrefix: apache-vm1-
 patches:
   - target:
       kind: VirtualMachine
