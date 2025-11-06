@@ -18,7 +18,10 @@ spec:
             - name: rootdisk
               disk:
                 bus: virtio
-          interfaces:              # <-- ADD THIS SECTION
+            - name: cloudinitdisk      # Add cloud-init disk
+              disk:
+                bus: virtio
+          interfaces:
             - name: default
               masquerade: {}
         resources:
@@ -28,7 +31,7 @@ spec:
         - name: rootdisk
           containerDisk:
             image: quay.io/containerdisks/centos-stream:9
-        - name: cloudinitdisk
+        - name: cloudinitdisk          # Add cloud-init volume
           cloudInitNoCloud:
             userData: |
               #cloud-config
@@ -36,6 +39,6 @@ spec:
               password: password
               chpasswd: { expire: False }
               ssh_pwauth: True
-      networks:
-        - name: default
-          pod: {}
+              disable_root: false
+              ssh_authorized_keys:
+                - ssh-rsa AAAAB3... your-public-key-here (optional)
