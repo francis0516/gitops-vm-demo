@@ -7,13 +7,4 @@ patches:
   - target:
       kind: VirtualMachine
       name: base-vm
-    patch: |-
-      apiVersion: kubevirt.io/v1
-      kind: VirtualMachine
-      metadata:
-        name: apache-vm3  # actual rename for this overlay
-      spec:
-        template:
-          metadata:
-            labels:
-              kubevirt.io/domain: apache-vm3
+    path: patch.yaml
