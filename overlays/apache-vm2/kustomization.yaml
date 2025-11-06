@@ -3,5 +3,8 @@ kind: Kustomization
 resources:
   - ../../base
 
-patchesStrategicMerge:
-  - patch.yaml
+patches:
+  - target:
+      kind: VirtualMachine
+      name: base-vm
+    path: patch.yaml
