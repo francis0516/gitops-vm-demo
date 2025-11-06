@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ../../base
 
-nameSuffix: -apache-vm1
+nameSuffix: -apache-vm3
 
 patches:
   - path: patch.yaml
