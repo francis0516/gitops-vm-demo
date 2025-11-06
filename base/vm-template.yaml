@@ -28,6 +28,14 @@ spec:
         - name: rootdisk
           containerDisk:
             image: quay.io/containerdisks/centos-stream:9
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: root
+              password: password
+              chpasswd: { expire: False }
+              ssh_pwauth: True
       networks:
         - name: default
           pod: {}
