@@ -1,7 +1,7 @@
 apiVersion: builtin
 kind: NameTransformer
 metadata:
-  name: rename-apache-vm1
+  name: rename-apache-vm3
 prefix: ""
 suffix: ""
 nameMap:
