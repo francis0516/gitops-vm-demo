@@ -18,6 +18,9 @@ spec:
             - name: rootdisk
               disk:
                 bus: virtio
+          interfaces:              # <-- ADD THIS SECTION
+            - name: default
+              masquerade: {}
         resources:
           requests:
             memory: 2Gi
