@@ -3,9 +3,7 @@ kind: Kustomization
 resources:
   - ../../base
 
-namePrefix: apache-vm1-
+namePrefix: apache-vm3-
+
 patches:
-  - target:
-      kind: VirtualMachine
-      name: base-vm
-    path: patch.yaml
+  - path: patch.yaml
